@@ -11,6 +11,6 @@ export interface IField {
     errors: string | undefined;
     rules: RegisterOptions;
     isMulti?: number;
-    className?: HTMLAttributes<HTMLDivElement>
     svgIcon?: React.ReactNode
+    className?: HTMLAttributes<HTMLDivElement>
 }

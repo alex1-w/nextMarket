@@ -1,11 +1,9 @@
 import styles from './Slider.module.scss';
 import { FC } from "react"
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Pagination, A11y } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/scrollbar';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css/free-mode";
-import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import PrevBtn from './PrevBtn/PrevBtn';
 import NextBtn from './NextBtn/NextBtn';
@@ -25,37 +23,45 @@ const breakpoints = {
     400: { slidesPerView: 1.3 },
 }
 
-
 const Slider: FC<{ slides: any }> = ({ slides }) => {
 
     return (
+        <div className={styles.wrapper}>
 
-        <div className={styles.main}>
 
-            <Swiper
-                className={styles.main__swiper}
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
-                spaceBetween={30}
-                breakpoints={breakpoints}
-                freeMode
-                grabCursor={true}
-                watchSlidesProgress
-            >
-                {slides.map((slide: any) => (
-                    <SwiperSlide key={slide.price}>
-                        {slide}
-                    </SwiperSlide>
-                ))}
-            </Swiper>
 
-            <span slot="container-end" className={styles.sliderNavigation}>
+            <div className={styles.main}>
 
-                <PrevBtn />
-                <NextBtn />
+                <Swiper
+                    className={styles.main__swiper}
+                    modules={[Pagination, A11y]}
+                    spaceBetween={30}
+                    breakpoints={breakpoints}
+                    freeMode
+                    pagination
 
-            </span>
+                    grabCursor={true}
+                    watchSlidesProgress
+                >
+                    {slides.map((slide: any) => (
+                        <SwiperSlide key={slide.price}>
+                            {slide}
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+                <span slot="container-end" className={styles.sliderNavigation}>
+
+                    <PrevBtn />
+                    <NextBtn />
+
+                </span>
+
+            </div>
+
 
         </div>
+
     )
 };
 

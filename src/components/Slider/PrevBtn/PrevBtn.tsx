@@ -1,14 +1,19 @@
-import { arrowIcon } from '@/components/icons/icons';
 import styles from './PrevBtn.module.scss';
+import { arrowIcon } from '@/components/icons/icons';
 import { FC } from "react"
+import { useSwiper } from 'swiper/react';
+
 
 const PrevBtn: FC = () => {
+    const swiper = useSwiper()
+
+
     return (
-        <div>
-            <p>
+        <button type='button' className={styles.main} onClick={() => swiper.slidePrev()}>
+            <div>
                 {arrowIcon}
-            </p>
-        </div>
+            </div>
+        </button>
     )
 };
 
