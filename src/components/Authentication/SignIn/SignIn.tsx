@@ -4,6 +4,7 @@ import { FC } from "react"
 import Field from '@/components/UI/Inputs/TextField/Field';
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { ISignInForm } from '../IForm';
+import { userService } from '@/services/userService';
 
 
 const SignIn: FC = () => {
@@ -18,7 +19,12 @@ const SignIn: FC = () => {
     })
 
     const submit: SubmitHandler<ISignInForm> = (data) => {
-        console.log(data);
+        // console.log(data);
+        try {
+            userService.registration(data)
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     return (

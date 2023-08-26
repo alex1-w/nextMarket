@@ -9,21 +9,21 @@
     justify-content: space-between;
     position: sticky;
     top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
-}
-
-.leftPart {
-    display: flex;
-    align-items: center;
-    gap: 50px;
+    >div:nth-child(1) {
+        justify-self: flex-start;
+    }
+    >div:nth-child(2) {
+        justify-self: center;
+    }
 }
 
 .userInterface {
-    display: flex;
-    align-items: center;
+    justify-self: flex-end;
 
     p {
         cursor: pointer;
-
     }
 }

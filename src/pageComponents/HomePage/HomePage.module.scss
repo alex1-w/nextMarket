@@ -1,4 +1,9 @@
 .main {
+    // min-height: 800vh;
+    padding: 50px;
+    // display: flex;
+    display: grid;
+    grid-template-columns: 20% 80%;
 
     &__aside {
         // width: 200px;
@@ -8,10 +13,10 @@
         // position: sticky;
         // left: 0;
         // top: 0;
-     
     }
 
-    min-height: 800vh;
-    padding: 50px;
-    display: flex;
+    &__slidesBlock {
+        // width: 80%;
+    }
+
 }

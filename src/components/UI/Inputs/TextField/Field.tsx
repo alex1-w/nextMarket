@@ -14,6 +14,7 @@ const Field = forwardRef<HTMLInputElement, IField>(({ svgIcon, placeholder, type
                 {svgIcon}
                 <TextField
                     variant='outlined'
+                    color='secondary'
                     className={styles.inp}
                     size={size}
                     type={type}

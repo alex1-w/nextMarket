@@ -14,13 +14,12 @@ const Header: FC = () => {
     return (
         <header className={styles.main}>
 
-            <div className={styles.leftPart}>
+            <Field svgIcon={searchIcon} placeholder='Поиск...' />
+
+            <div>
                 <Logo />
 
-                <Field svgIcon={searchIcon} placeholder='Поиск...'/>
             </div>
-
-
             <div onClick={authenticate} className={styles.userInterface}>
                 {/* <UserBlock /> */}
                 <Link href={'/authentication'}> <p>Войти</p></Link>
