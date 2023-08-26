@@ -5,7 +5,7 @@ import Field from '@/components/UI/Field/Field';
 import { FC } from "react"
 import UserBlock from './UserBlock/UserBlock';
 import Link from 'next/link';
-import { searchIcon } from '@/components/icons/icons';
+import { profile2Icon, searchIcon } from '@/components/icons/icons';
 
 const Header: FC = () => {
     const authenticate = () => console.log(534);
@@ -21,8 +21,9 @@ const Header: FC = () => {
 
             </div>
             <div onClick={authenticate} className={styles.userInterface}>
-                {/* <UserBlock /> */}
-                <Link href={'/authentication'}> <p>Войти</p></Link>
+                <Link href={'/authentication'}>
+                    {profile2Icon}
+                </Link>
             </div>
         </header>
     )

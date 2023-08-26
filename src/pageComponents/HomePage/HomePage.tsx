@@ -1,4 +1,5 @@
 'use client'
+import { MiniCart } from '@/components/MiniCart/MiniCart';
 import styles from './HomePage.module.scss';
 import ProductItem from '@/components/ProductItem/ProductItem';
 import Sidebar from '@/components/Sidebar/Sidebar';
@@ -19,6 +20,9 @@ const HomePage: FC = () => {
             <div className={styles.main__slidesBlock}>
                 <Slider slides={slides} />
             </div>
+
+            <MiniCart />
+
         </main>
     )
 };
