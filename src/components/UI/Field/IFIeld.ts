@@ -5,7 +5,7 @@ export interface IField {
     placeholder?: string;
     name: string;
     label?: string;
-    size: "small" | "medium";
+    size?: "small" | "medium";
     type: "number" | "text" | "password";
     register: UseFormRegister<any>;
     errors: string | undefined;

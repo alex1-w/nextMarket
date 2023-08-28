@@ -5,17 +5,49 @@
 }
 
 
-.wrapper {
-    width: 80%;
-    padding: 30px;
-    height: 500px;
-    border: 1px solid black;
-    // background: radial-gradient(circle, rgba(126, 126, 126, 1) 6%, rgba(32, 32, 32, 1) 85%);
-    border-radius: 10px;
-    background: linear-gradient(164deg, rgba(255, 0, 0, 1) 6%, rgba(0, 55, 255, 1) 85%);
+.content {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
+.wrapper {
+    // background: url('../../components//icons/stall.jpg') no-repeat center center;
+    padding: 10px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    // background: linear-gradient(164deg, rgba(255, 0, 0, 1) 6%, rgba(0, 55, 255, 1) 85%);
+    // background: linear-gradient(164deg, rgba(73,73,73,1) 6%, rgba(168,168,168,1) 85%);
+    // background-color: #1d1e22;
+    background-color: #393f4d;
+    gap: 10px;
+    width: 80%;
 
-.inp {}
+    >div:first-child {
+        align-self: center;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        svg {
+            fill: rgb(207, 207, 207);
+        }
+
+        h1 {
+            color: var(--light);
+        }
+    }
+}
+
+.leftPart {
+    border-radius: 5px;
+    overflow: hidden;
+    height: 100%;
+    width: 95%;
+    position: relative;
+
+    img {
+        object-fit: cover;
+        position: absolute;
+    }
+}

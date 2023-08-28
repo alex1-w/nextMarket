@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 const Field = forwardRef<HTMLInputElement, IField>(({ svgIcon, placeholder, type = 'text', size, errors, name, register, rules, className, label, ...rest }) => {
 
-
     return (
 
         <div className={styles.main}>

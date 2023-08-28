@@ -7,6 +7,7 @@ import "swiper/css/free-mode";
 import "swiper/css/thumbs";
 import PrevBtn from './PrevBtn/PrevBtn';
 import NextBtn from './NextBtn/NextBtn';
+import ProductItem from '../ProductItem/ProductItem';
 
 
 const breakpoints = {
@@ -28,8 +29,6 @@ const Slider: FC<{ slides: any }> = ({ slides }) => {
     return (
         <div className={styles.wrapper}>
 
-
-
             <div className={styles.main}>
 
                 <Swiper
@@ -44,8 +43,10 @@ const Slider: FC<{ slides: any }> = ({ slides }) => {
                     watchSlidesProgress
                 >
                     {slides.map((slide: any) => (
-                        <SwiperSlide key={slide.price}>
-                            {slide}
+                        <SwiperSlide key={slide.id}>
+
+                            <ProductItem product={slide} />
+
                         </SwiperSlide>
                     ))}
                 </Swiper>

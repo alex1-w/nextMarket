@@ -1,42 +1,45 @@
 'use client'
 import styles from './ProductItemCounter.module.scss';
 import { minus, plus } from '@/components/icons/icons';
+import { actions } from '@/store/basket/basket';
 import { FC, useState } from "react"
+import { useDispatch } from 'react-redux';
 
-const ProductItemCounter: FC = () => {
-
+const ProductItemCounter: FC<{ product: IProduct }> = ({ product }) => {
     const [productsCount, setProductsCount] = useState<number>(0)
 
-    const addProduct = () => setProductsCount((prev) => prev + 1)
+    const dispatch = useDispatch()
+
+    const addProduct = () => {
+        setProductsCount(prev => prev + 1)
+        dispatch(actions.addToBasket(product))
+    }
+
     const reduceProduct = () => setProductsCount((prev) => prev - 1)
 
     return (
 
         <div className={styles.main} >
-
-
             {productsCount === 0
                 ?
-                <div className={styles.main__initialStateBlock} onClick={addProduct}>
+                <button className={styles.main__initialStateBlock} onClick={addProduct}>
                     {plus}
-                </div>
+                </button>
                 :
                 <div className={styles.counterBlock}>
 
-                    <div className={styles.counterBlock__item} onClick={reduceProduct}>
+                    <button className={styles.counterBlock__item} onClick={reduceProduct}>
                         {minus}
-                    </div>
+                    </button>
 
                     <p>{productsCount}</p>
 
-                    <div className={styles.counterBlock__item} onClick={addProduct}>
+                    <button className={styles.counterBlock__item} onClick={addProduct}>
                         {plus}
-                    </div>
+                    </button>
 
                 </div>
             }
-
-
         </div>
 
     )

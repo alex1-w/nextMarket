@@ -1,17 +1,17 @@
 .main {
+    border: 1-px solid red;
+}
 
+.content {
     position: fixed;
-    top: 12%;
-    right: 0;
+    bottom: 6%;
+    right: 2%;
     z-index: 10;
-    background-color: rgba(161, 159, 159, 0.374);
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     svg {
-        height: 3em;
+        height: 4em;
     }
 }

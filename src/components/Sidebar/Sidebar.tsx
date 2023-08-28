@@ -3,11 +3,11 @@ import { FC } from "react"
 
 const Sidebar: FC = () => {
     return (
-        <div className={styles.container}>
-            <aside className={styles.sidebar}>
+        <aside className={styles.sidebar}>
+            <div className={styles.container}>
                 <p>efewffewewffewfd</p>
-            </aside>
-        </div>
+            </div>
+        </aside>
     )
 };
 

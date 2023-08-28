@@ -1,12 +1,18 @@
+'use client'
 import styles from './Login.module.scss';
 import { Button } from '@mui/material';
 import { FC } from "react"
 import Field from '@/components/UI/Inputs/TextField/Field';
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { ILoginForm } from '../IForm';
-import { searchIcon } from '@/components/icons/icons';
+import { userService } from '@/services/userService/userService';
+import { useMutation } from 'react-query'
+import { enqueueSnackbar } from 'notistack';
+// import { useRouter } from 'next/router';
 
 const Login: FC = () => {
+
+    // const navigate = useRouter()
 
     const { control, reset, register, handleSubmit, formState: { isValid, submitCount, errors } } = useForm({
         mode: 'onBlur',
@@ -17,9 +23,18 @@ const Login: FC = () => {
         }
     })
 
-    const submit: SubmitHandler<ILoginForm> = (data) => {
-        console.log(data);
-    }
+    const { mutateAsync } = useMutation(
+        ['authentication'],
+        (body: ILoginForm) => userService.authentication(body),
+        {
+            onSuccess: () => {
+                enqueueSnackbar('вы авторизавны', { variant: 'success' })
+                // navigate.push('/')
+            }
+        }
+    )
+
+    const submit: SubmitHandler<ILoginForm> = (data) => mutateAsync(data)
 
     return (
         <div className={styles.main}>
