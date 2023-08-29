@@ -1,7 +1,10 @@
+import { CreateBrandPage } from '@/pageComponents/CreateBrandPage/CreateBrandPage'
 import HomePage from '@/pageComponents/HomePage/HomePage'
 
-export default function Home() {
+export default function CreateBrandComponent() {
+
+
   return (
-    <h1>hferhuiferbgeribguiovrehuinvegrhunivgrewnhuievgrwnevrwghuievgrnui</h1>
+    <CreateBrandPage />
   )
 }

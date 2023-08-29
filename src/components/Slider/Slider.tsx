@@ -24,7 +24,10 @@ const breakpoints = {
     400: { slidesPerView: 1.3 },
 }
 
-const Slider: FC<{ slides: any }> = ({ slides }) => {
+const Slider: FC<{ slides: IFullProduct[] | any }> = ({ slides }) => {
+
+    console.log(slides);
+
 
     return (
         <div className={styles.wrapper}>
@@ -38,14 +41,19 @@ const Slider: FC<{ slides: any }> = ({ slides }) => {
                     breakpoints={breakpoints}
                     freeMode
                     pagination
-
                     grabCursor={true}
                     watchSlidesProgress
                 >
-                    {slides.map((slide: any) => (
+                    {slides.map((slide: IFullProduct) => (
                         <SwiperSlide key={slide.id}>
 
-                            <ProductItem product={slide} />
+                            <ProductItem
+                                count={slide.count}
+                                id={slide.id}
+                                name={slide.name}
+                                price={slide.price}
+                                weight={slide.weight}
+                            />
 
                         </SwiperSlide>
                     ))}

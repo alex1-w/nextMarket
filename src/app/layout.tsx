@@ -3,11 +3,13 @@ import Header from '@/components/layout/Header/Header'
 import './globals.scss'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { MiniCart } from '@/components/MiniCart/MiniCart'
+import { MiniCart } from '@/components/MiniBasket/MiniBasket'
 import { SnackbarProvider } from 'notistack';
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Provider } from 'react-redux'
 import { store } from '../store/store'
+import { IconContext } from "react-icons";
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,15 +34,18 @@ export default function RootLayout({
       <body className={inter.className}>
         <Provider store={store}>
 
-          <SnackbarProvider>
-            <QueryClientProvider client={queryClient}>
+          <IconContext.Provider value={{ color: 'black', size:'1.7em' }}>
 
-              <Header />
-              {children}
+            <SnackbarProvider>
+              <QueryClientProvider client={queryClient}>
 
-            </QueryClientProvider>
-          </SnackbarProvider>
+                <Header />
+                {children}
 
+              </QueryClientProvider>
+            </SnackbarProvider>
+
+          </IconContext.Provider>
 
         </Provider>
       </body>

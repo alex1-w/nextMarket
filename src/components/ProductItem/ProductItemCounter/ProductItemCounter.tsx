@@ -5,12 +5,14 @@ import { actions } from '@/store/basket/basket';
 import { FC, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux';
 
-const ProductItemCounter: FC<{ product: IProduct }> = ({ product }) => {
-    const [productsCount, setProductsCount] = useState<number>(0)
+interface IProductItemCounter {
+    product: IProduct
+    count: number
+}
 
-    const basket = useSelector((state: any) => state)
-    // const b = basket.find((item: any) => item.product.id === product.id)
-    // console.log(b);
+
+const ProductItemCounter: FC<IProductItemCounter> = ({ product, count }) => {
+    const [productsCount, setProductsCount] = useState<number>(count)
 
     const dispatch = useDispatch()
 
@@ -39,8 +41,8 @@ const ProductItemCounter: FC<{ product: IProduct }> = ({ product }) => {
                         {minus}
                     </button>
 
-                    <p>{basket.count}</p>
                     {/* <p>{productsCount}</p> */}
+                    <p>{count}</p>
 
                     <button className={styles.counterBlock__item} onClick={addProduct}>
                         {plus}

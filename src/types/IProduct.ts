@@ -4,3 +4,13 @@ interface IProduct {
     id: number
     price: number
 }
+
+
+interface IFullProduct extends IProduct {
+    count: number
+}
+
+
+ export interface IBrand{
+    name: string
+ }

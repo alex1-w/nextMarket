@@ -5,14 +5,15 @@ import { FC } from "react"
 import Field from '@/components/UI/Inputs/TextField/Field';
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { ILoginForm } from '../IForm';
-import { userService } from '@/services/userService/userService';
 import { useMutation } from 'react-query'
 import { enqueueSnackbar } from 'notistack';
+import { useLoginMutation } from '@/http/api';
+
 // import { useRouter } from 'next/router';
 
 const Login: FC = () => {
-
     // const navigate = useRouter()
+
 
     const { control, reset, register, handleSubmit, formState: { isValid, submitCount, errors } } = useForm({
         mode: 'onBlur',
@@ -23,18 +24,17 @@ const Login: FC = () => {
         }
     })
 
-    const { mutateAsync } = useMutation(
-        ['authentication'],
-        (body: ILoginForm) => userService.authentication(body),
-        {
-            onSuccess: () => {
-                enqueueSnackbar('вы авторизавны', { variant: 'success' })
-                // navigate.push('/')
-            }
-        }
-    )
+    const [login, { isError, isLoading, isSuccess }] = useLoginMutation()
 
-    const submit: SubmitHandler<ILoginForm> = (data) => mutateAsync(data)
+    const submit: SubmitHandler<ILoginForm> = async (data) => {
+        await login(data)
+
+        // try {
+        // } catch (err) {
+        //     return enqueueSnackbar(`${err}`, { variant: 'error' })
+        // }
+
+    }
 
     return (
         <div className={styles.main}>

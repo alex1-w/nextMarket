@@ -4,7 +4,11 @@ import { FC } from "react"
 import Field from '@/components/UI/Inputs/TextField/Field';
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { ISignInForm } from '../IForm';
-import { userService } from '@/services/userService/userService';
+import { useRegistrationMutation } from '@/http/api';
+import { enqueueSnackbar } from 'notistack';
+import Form from '@/components/Form/Form';
+// import { userService } from '@/services/userService/userService';
+
 
 
 const SignIn: FC = () => {
@@ -18,23 +22,28 @@ const SignIn: FC = () => {
         }
     })
 
+    const [registration, { isError, isLoading, isSuccess }] = useRegistrationMutation()
 
-
-    const submit: SubmitHandler<ISignInForm> = (data) => {
-
+    const submit: SubmitHandler<ISignInForm> = async (data) => {
+        if (data.password !== data.repeatPassword) return enqueueSnackbar('пароли не совпадают', { variant: 'error' })
 
         try {
-            userService.registration(data)
+            await registration(data)
+
+            if (isSuccess) {
+                console.log('success');
+            }
         } catch (err) {
-            console.log(err);
+            if (isError) {
+                console.log('error');
+            }
         }
     }
 
     return (
         <div className={styles.main}>
 
-
-            <form noValidate onSubmit={handleSubmit(submit)}>
+            <Form handleSubmit={handleSubmit} isValid={isValid} submit={submit} submitCount={submitCount} >
 
                 <Field
                     errors={errors?.login?.message}
@@ -67,16 +76,7 @@ const SignIn: FC = () => {
                     type='text'
                     rules={{}}
                 />
-
-                <Button
-                    disabled={!isValid}
-                    type='submit'
-                    color='success'
-                    variant='contained'
-                >
-                    submit
-                </Button>
-            </form>
+            </Form>
         </div>
     )
 };

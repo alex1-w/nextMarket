@@ -50,15 +50,13 @@ const CreateProductPage: FC = () => {
     }
 
     return (
-        <main className={styles.main}>
-
+        <main className={styles.main}>  
             <div className={styles.wrapper}>
 
                 <div>
                     {cart2Icon}
                     <h1>Новый продукт</h1>
                 </div>
-
 
                 <div className={styles.content}>
 
@@ -81,9 +79,7 @@ const CreateProductPage: FC = () => {
                     </Form>
 
                 </div>
-
             </div>
-
         </main>
     )
 };
