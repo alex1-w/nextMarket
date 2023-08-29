@@ -50,5 +50,12 @@
     >div {
         display: flex;
         flex-direction: column;
+        width: 100%;
+
+        p {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
     }
 }

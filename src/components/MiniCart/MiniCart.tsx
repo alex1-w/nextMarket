@@ -7,18 +7,22 @@ export const MiniCart = () => {
     const [isCart, setIsCart] = useState<boolean>(false)
     const showCart = () => setIsCart(!isCart)
 
+
     return (
+
         <div className={styles.main}>
 
             <div className={styles.content} onClick={showCart}>
-                {basketIcon}
-                
+
+                {!isCart && basketIcon}
                 {isCart
                     &&
-                    <Cart />
+                    <Cart isCart={isCart}/>
                 }
+
             </div>
 
         </div>
+
     )
 }

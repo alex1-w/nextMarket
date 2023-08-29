@@ -1,5 +1,6 @@
 interface IProduct {
     name: string,
-    wheit: number,
+    weight: number,
     id: number
+    price: number
 }

@@ -3,10 +3,14 @@ import styles from './ProductItemCounter.module.scss';
 import { minus, plus } from '@/components/icons/icons';
 import { actions } from '@/store/basket/basket';
 import { FC, useState } from "react"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductItemCounter: FC<{ product: IProduct }> = ({ product }) => {
     const [productsCount, setProductsCount] = useState<number>(0)
+
+    const basket = useSelector((state: any) => state)
+    // const b = basket.find((item: any) => item.product.id === product.id)
+    // console.log(b);
 
     const dispatch = useDispatch()
 
@@ -15,7 +19,10 @@ const ProductItemCounter: FC<{ product: IProduct }> = ({ product }) => {
         dispatch(actions.addToBasket(product))
     }
 
-    const reduceProduct = () => setProductsCount((prev) => prev - 1)
+    const reduceProduct = () => {
+        setProductsCount((prev) => prev - 1)
+        dispatch(actions.reduceProductBasket(product))
+    }
 
     return (
 
@@ -32,7 +39,8 @@ const ProductItemCounter: FC<{ product: IProduct }> = ({ product }) => {
                         {minus}
                     </button>
 
-                    <p>{productsCount}</p>
+                    <p>{basket.count}</p>
+                    {/* <p>{productsCount}</p> */}
 
                     <button className={styles.counterBlock__item} onClick={addProduct}>
                         {plus}

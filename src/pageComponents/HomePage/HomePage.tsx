@@ -10,42 +10,50 @@ import { FC } from "react";
 const productData = [
     {
         name: 'чипсы сырные',
-        wheit: 120,
+        price: 140,
+        weight: 120,
         id: 1
     },
     {
         name: 'чипсы с луком',
-        wheit: 140,
+        price: 140,
+        weight: 140,
         id: 2
     },
     {
         name: 'чипсы с ребрышками',
-        wheit: 100,
+        price: 140,
+        weight: 100,
         id: 3
     },
     {
         name: 'чипсы со сметаной',
-        wheit: 160,
+        price: 140,
+        weight: 160,
         id: 4
     },
     {
-        name: 'чипсы кукурузные',
-        wheit: 100,
+        name: 'чипсы кукурузныавввввввввввввввввввввввввввввввввввввввввввввввввве',
+        price: 140,
+        weight: 100,
         id: 5
     },
     {
         name: 'чипсы сырные',
-        wheit: 1000,
+        price: 140,
+        weight: 1000,
         id: 6
     },
     {
         name: 'чипсы крабовые',
-        wheit: 120,
+        price: 140,
+        weight: 120,
         id: 7
     },
     {
         name: 'чипсы',
-        wheit: 120,
+        price: 140,
+        weight: 120,
         id: 8
     },
 ]

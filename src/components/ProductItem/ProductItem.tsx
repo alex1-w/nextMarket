@@ -7,22 +7,21 @@ import { useSelector } from 'react-redux';
 interface IProductItem {
     product: {
         name: string,
-        wheit: number,
-        id: number
+        weight: number,
+        id: number,
+        price: number,
     }
 }
 
-// const ProductItem: FC<IProductItem> = ({product. id, name, wheit }) => {
 const ProductItem: FC<IProductItem> = ({ product }) => {
 
     const basket = useSelector((state: any) => state)
 
-    console.log('basket', basket);
 
     return (
         <div className={styles.main}>
             <div className={styles.imgBlock}>
-                <Image alt='fs' src='http://www.a-yabloko.ru/storage/catalog/goods/.thumbs/942dd6b46f560a8b118d37bfae28655e_w800.jpg' fill />
+                <Image alt={product.name} src='http://www.a-yabloko.ru/storage/catalog/goods/.thumbs/942dd6b46f560a8b118d37bfae28655e_w800.jpg' fill />
             </div>
 
             <div className={styles.description}>
@@ -32,7 +31,9 @@ const ProductItem: FC<IProductItem> = ({ product }) => {
                     <p className={styles.description__title}>{product.name}</p>
                 </div>
 
-                <p className={styles.description__weight}>{product.wheit}</p>
+                <p className={styles.description__weight}>
+                    {product.weight}г.
+                </p>
 
             </div>
 
