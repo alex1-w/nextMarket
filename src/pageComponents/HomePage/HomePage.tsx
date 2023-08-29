@@ -7,6 +7,7 @@ import Slider from '@/components/Slider/Slider';
 import Image from 'next/image';
 import { FC } from "react";
 
+
 const slides = [ProductItem, ProductItem, ProductItem, ProductItem, ProductItem, ProductItem, ProductItem,]
 
 const HomePage: FC = () => {
