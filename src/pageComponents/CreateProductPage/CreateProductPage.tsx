@@ -21,7 +21,6 @@ const CreateProductPage: FC = () => {
 
     const submit = (body: any) => {
         console.log(body);
-
     }
 
     return (
@@ -34,11 +33,11 @@ const CreateProductPage: FC = () => {
 
                 <Form handleSubmit={handleSubmit} isValid={isValid} submit={submit} submitCount={submitCount} >
 
-                    <Field errors={errors?.title?.message} name='title' register={register} rules={{}} size='medium' />
-                    <Field errors={errors?.description?.message} name='description' register={register} rules={{}} size='medium' />
-                    <Field errors={errors?.brand?.message} name='brand' register={register} rules={{}} size='medium' />
-                    <Field errors={errors?.image?.message} name='image' register={register} rules={{}} size='medium' />
-                    <Field errors={errors?.price?.message} name='price' register={register} rules={{}} size='medium' />
+                    <Field type='text' errors={errors?.title?.message} name='title' register={register} rules={{}} size='medium' />
+                    <Field type='text' errors={errors?.description?.message} name='description' register={register} rules={{}} size='medium' />
+                    <Field type='text' errors={errors?.image?.message} name='image' register={register} rules={{}} size='medium' />
+                    <Field type='number' errors={errors?.price?.message} name='price' register={register} rules={{}} size='medium' />
+              
                 </Form>
 
             </div>

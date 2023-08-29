@@ -15,7 +15,7 @@ const HomePage: FC = () => {
 
             <div className={styles.main__aside}>
                 <Sidebar />
-            </div>
+            </div>``
 
             <div className={styles.main__slidesBlock}>
                 <Slider slides={slides} />
